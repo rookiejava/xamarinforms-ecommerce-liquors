@@ -12,7 +12,7 @@
 
     <Grid BackgroundColor="{StaticResource colorBlack}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="{OnPlatform Android='.48*', iOS='.68*'}" />
+            <RowDefinition Height="{OnPlatform Android='.48*', iOS='.68*', Tizen='.68*'}" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -32,12 +32,12 @@
                 Margin="0,-25,0,0"
                 CharacterSpacing="10"
                 FontSize="{OnPlatform Android='20',
-                                      iOS='26'}"
+                                      iOS='26', Tizen='26' }"
                 Text="Liquors" />
             <Label
                 Margin="0,25,0,0"
                 FontSize="{OnPlatform Android='18',
-                                      iOS='18'}"
+                                      iOS='18', Tizen='18' }"
                 Text="Kentucky Scotch single &#10;malted barley." />
         </StackLayout>
         <StackLayout
@@ -107,6 +107,13 @@
                     CornerRadius="18"
                     HasShadow="False"
                     HorizontalOptions="EndAndExpand">
+                    <Frame.BorderColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <OnPlatform.Platforms>
+                                <On Platform="Tizen" Value="Transparent" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </Frame.BorderColor>
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Label
                             FontFamily="FontBarlowSemiBold"
