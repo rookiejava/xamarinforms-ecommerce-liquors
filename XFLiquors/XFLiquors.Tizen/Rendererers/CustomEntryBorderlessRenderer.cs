@@ -1,14 +1,26 @@
-﻿using Xamarin.Forms;
+﻿using ElmSharp;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Tizen;
+using Xamarin.Forms.Platform.Tizen.Native;
 using XFLiquors.Tizen.Renderers;
 using XFLiquors.Renderers;
+using EEntry = ElmSharp.Entry;
+using ELayout = ElmSharp.Layout;
 
 [assembly: ExportRenderer(typeof(CustomEntryBorderless), typeof(CustomEntryBorderlessRenderer))]
 namespace XFLiquors.Tizen.Renderers
 {
     public class CustomEntryBorderlessRenderer : EntryRenderer
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        protected override EEntry CreateNativeControl()
+        {
+            return new CustomEditfieldEntry(Forms.NativeParent)
+            {
+                IsSingleLine = true,
+            };
+        }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Entry> e)
         {
             base.OnElementChanged(e);
 
@@ -18,4 +30,55 @@ namespace XFLiquors.Tizen.Renderers
             }
         }
     }
+
+    public class CustomEditfieldEntry : EditfieldEntry
+    {
+        public CustomEditfieldEntry(EvasObject parent) : base(parent)
+        {
+        }
+
+		protected override ELayout CreateEditFieldLayout(EvasObject parent)
+		{
+			var layout = new ELayout(parent);
+			layout.SetTheme("layout", "application", "default");
+			layout.AllowFocus(true);
+			layout.Unfocused += (s, e) =>
+			{
+				SetFocusOnTextBlock(false);
+				layout.SignalEmit("elm,state,unfocused", "");
+				OnEntryLayoutUnfocused();
+			};
+			layout.Focused += (s, e) =>
+			{
+				layout.SignalEmit("elm,state,focused", "");
+				OnEntryLayoutFocused();
+			};
+
+			layout.KeyDown += (s, e) =>
+			{
+				if (e.KeyName == "Return")
+				{
+					if (!IsTextBlockFocused)
+					{
+						SetFocusOnTextBlock(true);
+						e.Flags |= EvasEventFlag.OnHold;
+					}
+				}
+			};
+			Clicked += (s, e) => SetFocusOnTextBlock(true);
+
+			Focused += (s, e) =>
+			{
+				layout.RaiseTop();
+				layout.SignalEmit("elm,state,focused", "");
+			};
+
+			Unfocused += (s, e) =>
+			{
+				layout.SignalEmit("elm,state,unfocused", "");
+			};
+
+			return layout;
+		}
+	}
 }

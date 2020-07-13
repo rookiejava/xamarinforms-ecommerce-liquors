@@ -7,7 +7,7 @@ namespace Xamarin.Forms.PancakeView.Tizen
     {
         internal const string Evas = "libevas.so.1";
     }
-        internal static partial class Interop
+    internal static partial class Interop
     {
         internal static partial class Evas
         {

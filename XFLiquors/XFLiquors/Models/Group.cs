@@ -1,4 +1,5 @@
-﻿using XFLiquors.ViewModel;
+﻿using Xamarin.Forms;
+using XFLiquors.ViewModel;
 
 namespace XFLiquors.Models
 {
@@ -7,8 +8,8 @@ namespace XFLiquors.Models
         public int groupId { get; set; }
         public string description { get; set; }
 
-        private string _backGroundColor;
-        public string backGroundColor
+        private Color _backGroundColor;
+        public Color backGroundColor
         {
             get { return _backGroundColor; }
             set { SetProperty(ref _backGroundColor, value); }

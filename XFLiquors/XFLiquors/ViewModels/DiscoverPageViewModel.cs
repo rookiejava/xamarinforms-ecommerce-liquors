@@ -35,7 +35,7 @@ namespace XFLiquors.ViewModels
             {
                 groupId = 1,
                 description = "WHISKEY",
-                backGroundColor = "#D99D60",
+                backGroundColor = Color.FromHex("#D99D60"),
                 textColor = "#FFFFFF",
                 selected = true,
             });
@@ -44,7 +44,6 @@ namespace XFLiquors.ViewModels
             {
                 groupId = 2,
                 description = "BEER",
-                backGroundColor = "Transparent",
                 textColor = "#5B5F62",
             });
 
@@ -52,7 +51,6 @@ namespace XFLiquors.ViewModels
             {
                 groupId = 3,
                 description = "LIQUERS",
-                backGroundColor = "Transparent",
                 textColor = "#5B5F62",
             });
 
@@ -60,7 +58,6 @@ namespace XFLiquors.ViewModels
             {
                 groupId = 4,
                 description = "VODKA",
-                backGroundColor = "Transparent",
                 textColor = "#5B5F62",
             });
 
@@ -68,13 +65,92 @@ namespace XFLiquors.ViewModels
             {
                 groupId = 5,
                 description = "WINE",
-                backGroundColor = "Transparent",
                 textColor = "#5B5F62",
             });
         }
 
         void GetProducts()
         {
+            Products.Add(new Product()
+            {
+                image = "octomore101.png",
+                description = "Bruichladdich Octomore 10.1",
+                rating = 4.5,
+                weight = 750,
+                price = 199.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "ardbeg.png",
+                description = "Ardbeg An Oa",
+                rating = 5,
+                weight = 750,
+                price = 85.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "jack_daniels.png",
+                description = "Jack Daniel's Old No. 7 Tennessee",
+                rating = 4.7,
+                weight = 1.75,
+                price = 45.99
+            });
+            Products.Add(new Product()
+            {
+                image = "octomore101.png",
+                description = "Bruichladdich Octomore 10.1",
+                rating = 4.5,
+                weight = 750,
+                price = 199.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "ardbeg.png",
+                description = "Ardbeg An Oa",
+                rating = 5,
+                weight = 750,
+                price = 85.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "jack_daniels.png",
+                description = "Jack Daniel's Old No. 7 Tennessee",
+                rating = 4.7,
+                weight = 1.75,
+                price = 45.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "octomore101.png",
+                description = "Bruichladdich Octomore 10.1",
+                rating = 4.5,
+                weight = 750,
+                price = 199.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "ardbeg.png",
+                description = "Ardbeg An Oa",
+                rating = 5,
+                weight = 750,
+                price = 85.99
+            });
+
+            Products.Add(new Product()
+            {
+                image = "jack_daniels.png",
+                description = "Jack Daniel's Old No. 7 Tennessee",
+                rating = 4.7,
+                weight = 1.75,
+                price = 45.99
+            });
+
             Products.Add(new Product()
             {
                 image = "octomore101.png",
@@ -120,6 +196,76 @@ namespace XFLiquors.ViewModels
                 weight = 700,
                 price = 63.99
             });
+
+            BestPrices.Add(new Product()
+            {
+                image = "octomore101.png",
+                description = "Bruichladdich Octomore 10.1",
+                rating = 4.5,
+                weight = 750,
+                price = 199.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "ardbeg.png",
+                description = "Ardbeg An Oa",
+                rating = 5,
+                weight = 750,
+                price = 85.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "jack_daniels.png",
+                description = "Jack Daniel's Old No. 7 Tennessee",
+                rating = 4.7,
+                weight = 1.75,
+                price = 45.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "dalmore.png",
+                description = "The Dalmore 12 Year",
+                weight = 750,
+                price = 64.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "charlotte.png",
+                description = "Bruichladdich Port Charlotte Scotch",
+                weight = 700,
+                price = 63.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "octomore101.png",
+                description = "Bruichladdich Octomore 10.1",
+                rating = 4.5,
+                weight = 750,
+                price = 199.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "ardbeg.png",
+                description = "Ardbeg An Oa",
+                rating = 5,
+                weight = 750,
+                price = 85.99
+            });
+
+            BestPrices.Add(new Product()
+            {
+                image = "jack_daniels.png",
+                description = "Jack Daniel's Old No. 7 Tennessee",
+                rating = 4.7,
+                weight = 1.75,
+                price = 45.99
+            });
         }
 
         private async Task ExecuteNavigateToMainPageCommand()
@@ -138,7 +284,7 @@ namespace XFLiquors.ViewModels
                 UnselectGroupItems();
 
                 Groups[index].selected = true;
-                Groups[index].backGroundColor = "#D99D60";
+                Groups[index].backGroundColor = Color.FromHex("#D99D60");
                 Groups[index].textColor = "#FFFFFF";
             }
         }
@@ -148,7 +294,7 @@ namespace XFLiquors.ViewModels
             Groups.ForEach((item) =>
             {
                 item.selected = false;
-                item.backGroundColor = "Transparent";
+                item.backGroundColor = Color.Default;
                 item.textColor = "#5B5F62";
             });
         }

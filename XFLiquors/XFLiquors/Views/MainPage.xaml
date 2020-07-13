@@ -12,7 +12,7 @@
 
     <Grid BackgroundColor="{StaticResource colorBlack}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="{OnPlatform Android='.48*', iOS='.68*', Tizen='.68*'}" />
+            <RowDefinition Height="{OnPlatform Android='.48*', iOS='.68*', Tizen='.58*'}" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -23,28 +23,28 @@
         <StackLayout
             Grid.Row="1"
             Grid.ColumnSpan="2"
-            Margin="35,0">
+            Margin="135,0">
             <Label
-                FontFamily="FontAbhayaLibreBold"
-                FontSize="70"
+                FontFamily="AbhayaLibre-Bold"
+                FontSize="96"
                 Text="{Binding Company}" />
             <Label
                 Margin="0,-25,0,0"
                 CharacterSpacing="10"
                 FontSize="{OnPlatform Android='20',
-                                      iOS='26', Tizen='26' }"
-                Text="Liquors" />
+                                      iOS='26', Tizen='39' }"
+                Text="L  i  q  u  o  r  s" />
             <Label
-                Margin="0,25,0,0"
+                Margin="0,105,0,0"
                 FontSize="{OnPlatform Android='18',
-                                      iOS='18', Tizen='18' }"
+                                      iOS='18', Tizen='27' }"
                 Text="Kentucky Scotch single &#10;malted barley." />
         </StackLayout>
         <StackLayout
             Grid.RowSpan="3"
             Grid.Column="1"
             BackgroundColor="{StaticResource colorBlack222}"
-            WidthRequest="110" />
+            WidthRequest="510" />
         <Image
             Grid.RowSpan="3"
             Grid.ColumnSpan="2"
@@ -73,56 +73,57 @@
         <StackLayout
             Grid.Row="2"
             Grid.ColumnSpan="2"
-            Margin="35,0,25,35"
+            HeightRequest="600"
+            Margin="100,0,100,0"  Spacing="30"
             Orientation="Horizontal"
             VerticalOptions="End">
             <BoxView
                 BackgroundColor="{StaticResource colorOrange}"
-                CornerRadius="5"
-                HeightRequest="10"
+                CornerRadius="20"
+                HeightRequest="40"
                 VerticalOptions="Center"
-                WidthRequest="10" />
+                WidthRequest="40" />
             <BoxView
                 BackgroundColor="{StaticResource colorGray}"
-                CornerRadius="4"
-                HeightRequest="8"
+                CornerRadius="16"
+                HeightRequest="32"
                 VerticalOptions="Center"
-                WidthRequest="8" />
+                WidthRequest="32" />
             <BoxView
                 BackgroundColor="{StaticResource colorGray}"
-                CornerRadius="4"
-                HeightRequest="8"
+                CornerRadius="16"
+                HeightRequest="32"
                 VerticalOptions="Center"
-                WidthRequest="8" />
+                WidthRequest="32" />
             <shadows:Shadows
                 CornerRadius="10"
                 HorizontalOptions="EndAndExpand"
-                Shades="{shadows:SingleShade BlurRadius=50,
-                                             Offset='10,20',
-                                             Opacity=0.2,
+                VerticalOptions="Center"
+                Shades="{shadows:SingleShade BlurRadius=100,
+                                             Offset='20,40',
+                                             Opacity=0.5,
                                              Color={StaticResource colorOrange}}">
                 <Frame
                     Padding="20"
+                    WidthRequest="670"
+                    HeightRequest="200"
                     BackgroundColor="{StaticResource colorOrange}"
-                    CornerRadius="18"
+                    CornerRadius="50"
                     HasShadow="False"
+                    VerticalOptions="Start"
                     HorizontalOptions="EndAndExpand">
-                    <Frame.BorderColor>
-                        <OnPlatform x:TypeArguments="Color">
-                            <OnPlatform.Platforms>
-                                <On Platform="Tizen" Value="Transparent" />
-                            </OnPlatform.Platforms>
-                        </OnPlatform>
-                    </Frame.BorderColor>
-                    <StackLayout Orientation="Horizontal" Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="20">
                         <Label
-                            FontFamily="FontBarlowSemiBold"
-                            FontSize="Medium"
-                            Text="Get Started" />
+                            FontFamily="Barlow-SemiBold"
+                            FontSize="45"
+                            Text="Get Started"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
                         <Label
-                            FontFamily="FontFontello"
-                            FontSize="Large"
+                            FontFamily="fontello"
+                            FontSize="45"
                             Text="{x:Static fonticons:FontIcons.ArrowRight}"
+                            HorizontalOptions="Center"
                             VerticalOptions="Center" />
                     </StackLayout>
                     <Frame.GestureRecognizers>
